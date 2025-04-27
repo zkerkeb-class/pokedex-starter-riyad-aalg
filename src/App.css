@@ -1,42 +1,159 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* 🎴 Conteneur global des cartes Pokémon */
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+  background: linear-gradient(to right, #00c6ff, #0072ff); /* Dégradé bleu dynamique */
+  min-height: 100vh;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+/* 🎴 Carte Pokémon */
+.pokemon-card {
+  width: 250px;
+  height: 450px;
+  border-radius: 20px; /* Coins arrondis plus marqués */
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8f9fa, #e1e8f0); /* Carte plus claire avec un effet de brume */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Ombre douce */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   text-align: center;
+  padding: 15px;
+  border: none;
+  position: relative;
+  cursor: pointer;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* 📌 Animation au survol */
+.pokemon-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 📛 Titre du Pokémon */
+.pokemon-name-container {
+  background: linear-gradient(45deg, #ff6b6b, #ff9a8b); /* Dégradé de rose et rouge */
+  padding: 10px;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* 🖼 Image Pokémon */
+.pokemon-image {
+  width: 120px;
+  height: 120px;
+  margin-top: 20px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.card {
-  padding: 2em;
+/* 🌟 Type du Pokémon (avec couleurs dynamiques) */
+.pokemon-types-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
 }
 
-.read-the-docs {
-  color: #888;
+.pokemon-type {
+  padding: 8px 16px;
+  border-radius: 25px; /* Bords plus arrondis */
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Effet de zoom pour les types au survol */
+.pokemon-type:hover {
+  transform: scale(1.1);
+}
+
+/* 🎨 Couleurs des types Pokémon */
+.pokemon-type.Grass { background-color: #64b14d; }
+.pokemon-type.Fire { background-color: #f28c3b; }
+.pokemon-type.Water { background-color: #50a9e4; }
+.pokemon-type.Electric { background-color: #ffdd2a; }
+.pokemon-type.Poison { background-color: #9b59b6; }
+.pokemon-type.Normal { background-color: #a4a27a; }
+.pokemon-type.Psychic { background-color: #e57cbf; }
+.pokemon-type.Fighting { background-color: #ea5734; }
+.pokemon-type.Rock { background-color: #596261; }
+.pokemon-type.Ground { background-color: #623730; }
+.pokemon-type.Ice { background-color: #ffffff; }
+.pokemon-type.Ghost { background-color: #423838; }
+.pokemon-type.Dragon { background-color: #ffae51; }
+.pokemon-type.Steel { background-color: #3f3f3f; }
+.pokemon-type.Fairy { background-color: #7a00ae; }
+.pokemon-type.Bug { background-color: #004902; }
+.pokemon-type.Flying { background-color: #00fbff; }
+
+
+
+/* 📊 Conteneur des statistiques */
+.pokemon-stats-container {
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Texte des statistiques */
+.pokemon-stats-container p {
+  margin: 6px 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 🎨 Effet sur fond au survol */
+.pokemon-stats-container:hover {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+/* Conteneur global de l'application */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Conteneur de la barre de recherche */
+.search-container {
+  width: 100%;
+  max-width: 500px; /* Limite la largeur de la barre de recherche */
+  margin-bottom: 30px;
+}
+
+/* Style de la barre de recherche */
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: 2px solid #0072ff;
+  background-color: #000000;
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Changement de style au focus */
+.search-bar:focus {
+  border-color: #00c6ff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }

@@ -1,7 +1,7 @@
 import {pokemonImages} from './imageLibrary';
 
 
-const pokemonsList = [{
+export const pokemonsList = [{
     "id": 1,
     "name": {
       "english": "Bulbasaur",
